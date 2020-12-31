@@ -10,18 +10,17 @@ class Shop extends Component {
       collections: ShopData,
     };
   }
-
+ 
   render() {
     const { collections } = this.state;
 
     const collectionsArray = collections.length ? (
-      collections.map((id, ...CollectionsProps) => (
+      collections.map(({id, ...CollectionsProps}) => (
         <CollectionPreview key={id} {...CollectionsProps} />
       ))
     ) : (
       <div>No collections</div>
-    );
-
+    )
     return <div className="shop-page">{collectionsArray}</div>;
   }
 }
