@@ -3,7 +3,7 @@ import CusttomButton from '../customButton/CusttomButton'
 import FormInput from "../formInput/FormInput"
 import "./signin.css"
 
-import {signInWithGoogle} from "../../firebase/FirebaseUtils"
+import { signInWithGoogle } from "../../firebase/FirebaseUtils"
 
 
 const SignIn = () => {
@@ -39,13 +39,13 @@ const SignIn = () => {
                 <label>Password</label>
                 <FormInput type="password" name="password" value={password} placeholder="Password" onChange={handleChange} required/>
 
-                <CusttomButton type="submit">SIGN IN</CusttomButton>
-                <CusttomButton onClick={signInWithGoogle} >
-                    SIGN IN with Google</CusttomButton>
+                <div className="button">
+                <CusttomButton type="submit">SIGN IN</CusttomButton> {' '}
+                <CusttomButton onClick={signInWithGoogle} isGoogleSignIn>SIGN IN with Google</CusttomButton>
+                </div>
             </form>
         </div>
     )
 }
 
 export default SignIn
-

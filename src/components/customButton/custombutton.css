@@ -20,4 +20,9 @@
   color: black;
   border: 1px solid black;
 }
+.custom-button.google-sign-in {
+  background-color: #4285f4;
+  border: none;
+}
+
   

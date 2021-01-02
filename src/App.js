@@ -4,20 +4,54 @@ import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
+import {auth} from './firebase/FirebaseUtils'
 
 import { Route, Switch } from "react-router-dom";
 
-const App = () => {
-  return (
-    <>
-      <Header />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/shop" component={ShopPage} />
-        <Route exact path="/signin" component={SiginSignup} />
-      </Switch>
-    </>
-  );
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       currentUser: null
+    }
+  }
+  unsubscribeFromAuth = null
+
+  componentDidMount(){
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+      this.setState({currentUser: user})
+
+      console.log(user)
+    })
+  }
+
+  componentWillUnmount(){
+    this.unsubscribeFromAuth()
+  }
+
+  //   auth.onAuthStateChanged(user => {
+  //     setCurrUser(user)
+  //     console.log(user) 
+  //   }
+  // )
+ 
+  
+  render(){
+    const {currentUser} = this.state
+    return (
+      <>
+        <Header currentUser={currentUser} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/signin" component={SiginSignup} />
+        </Switch>
+      </>
+    );
+  }
 };
 
 // online mentor ubong king
