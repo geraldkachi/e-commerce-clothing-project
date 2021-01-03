@@ -3,7 +3,7 @@ import CusttomButton from '../customButton/CusttomButton'
 import FormInput from "../formInput/FormInput"
 import "./signin.css"
 
-import { signInWithGoogle } from "../../firebase/FirebaseUtils"
+import { auth,signInWithGoogle } from "../../firebase/FirebaseUtils"
 
 
 const SignIn = () => {
@@ -13,12 +13,18 @@ const SignIn = () => {
     })
     const {email, password} = formInput
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setFormInput({
             email:'',
             password:''
         })
+        try {
+            await auth.signInWithEmailAndPassword(email,password)
+            setFormInput({email:'', password:''})
+        } catch (error) {
+            console.error(error)
+        }
     }
     const handleChange = (e) => {
         const {name, value} = e.target

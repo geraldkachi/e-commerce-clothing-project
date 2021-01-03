@@ -4,7 +4,7 @@ import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
-import {auth} from './firebase/FirebaseUtils'
+import {auth, createUserProfileDocument} from './firebase/FirebaseUtils'
 
 import { Route, Switch } from "react-router-dom";
 
@@ -21,10 +21,24 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({currentUser: user})
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth)
 
-      console.log(user)
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }  
+          })
+          // console.log(this.state);
+        })
+
+      }
+      
+      
+      this.setState({currentUser: userAuth})
     })
   }
 
