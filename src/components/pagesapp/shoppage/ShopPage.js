@@ -19,7 +19,7 @@ class ShopPage extends Component {
         <CollectionPreview key={id} {...CollectionsProps} />
       ))
     ) : (
-      <div>No collections</div>
+      <div>Loading collections...</div>
     )
     return <div className="shop-page">{collectionsArray}</div>;
   }

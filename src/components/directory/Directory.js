@@ -53,7 +53,7 @@ class Directory extends React.Component {
         <MenuItem key={id} {...sectionProps} />
       ))
     ) : (
-      <div>No Items...</div>
+      <div>Loading Items...</div>
     );
     return <div className="directory-menu">{DirectoryArray}</div>;
   }

@@ -29,7 +29,7 @@ const SignIn = () => {
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormInput({[name]:value})
-        console.log(setFormInput);
+        // console.log(setFormInput);
     }
 
     return (
