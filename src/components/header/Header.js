@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 import CartIcon from "../cartIcon/CartIcon";
 import CartDropDown from "../cartdropdown/CartDropDown";
 
-const Header = ({currentUser}) => {
+const Header = ({currentUser, hidden}) => {
   return (
     <div className="header justify-content-between">
       <Link className="logo-container" to="/">
@@ -34,13 +34,16 @@ const Header = ({currentUser}) => {
         <CartIcon />
         </div>
       </div>
-      <CartDropDown />
+      { hidden ? (null) : (<CartDropDown />) }
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({user: { currentUser }, cart: { hidden }}) => ({
+  // currentUser: state.user.currentUser,
+  // hidden: state.cart.hidden
+  currentUser,
+  hidden
 });
 
 export default connect(mapStateToProps)(Header);

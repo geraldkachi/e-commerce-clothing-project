@@ -1,4 +1,4 @@
-import {UserActionTypes} from "./UserType"
+import { UserActionTypes } from "./UserType"
 
 const initState = {
     currentUser: null
