@@ -6,82 +6,89 @@ import Header from "./components/header/Header"
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
 import {auth, createUserProfileDocument} from './firebase/FirebaseUtils'
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
+
+import {connect} from "react-redux"
+import { setCurrentUser } from "./components/redux/user/UserAction";
 
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props)
+  // constructor(props) {
+  //   super(props)
   
-    this.state = {
-       currentUser: null
-    }
-  }
+  //   this.state = {
+  //      currentUser: null
+  //   }
+  // }
   unsubscribeFromAuth = null
 
   componentDidMount(){
+    const { setCurrentUser } = this.props
+    
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
-            currentUser: {
+          setCurrentUser({
               id: snapShot.id,
               ...snapShot.data()
-            }  
           })
+          // this.setState({
+          //   currentUser: {
+          //     id: snapShot.id,
+          //     ...snapShot.data()
+          //   }  
+          // })
           // console.log(this.state);
         })
 
       }
       
       
-      this.setState({currentUser: userAuth})
+      setCurrentUser({currentUser: userAuth})
     })
   }
 
   componentWillUnmount(){
     this.unsubscribeFromAuth()
   }
-
-  //   auth.onAuthStateChanged(user => {
-  //     setCurrUser(user)
-  //     console.log(user) 
-  //   }
-  // )
- 
   
   render(){
-    const {currentUser} = this.state
+
+    const { currentUser } = this.props
+
     return (
       <>
-        <Header currentUser={currentUser} />
+        <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/signin" component={SiginSignup} />
+          <Route  path="/shop" component={ShopPage} />
+          <Route exact path="/signin" render={() => currentUser ? (<Redirect to="/" />) : (<SiginSignup />)} />
         </Switch>
       </>
     );
   }
 };
 
-// online mentor ubong king
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+   setCurrentUser: user => dispatch(setCurrentUser(user))
+})
 
-
-
-
-
+export default connect(null,mapDispatchToProps )(App);
 
 
 
 
 
 
+
+
+
+
+// vscode://vscode.github-authentication/did-authenticate?windowid=1&code=dbd522026b4f096fd20c&state=b09b5dcc-d6e0-4082-b97a-dba30b0188e9
 
 
 

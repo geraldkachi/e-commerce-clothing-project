@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assest/crown.svg";
 import { auth } from "../../firebase/FirebaseUtils";
 
+import { connect } from "react-redux";
+
 const Header = ({currentUser}) => {
   return (
     <div className="header justify-content-between">
@@ -15,24 +17,26 @@ const Header = ({currentUser}) => {
           <Link className="option" to="/shop">
             SHOP
           </Link>
-        <Link className="option" to="/c0ntact">
-          CONTACT
-        </Link>
-        {
-          currentUser ? (
+          <Link className="option" to="/contact">
+            CONTACT
+          </Link>
+          {currentUser ? (
             <div className="option" onClick={() => auth.signOut()}>
-              SIGN OUT  
+              SIGN OUT
             </div>
           ) : (
             <Link to="/signin" className="option">
               SIGN IN
             </Link>
-          )
-        }
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header);
