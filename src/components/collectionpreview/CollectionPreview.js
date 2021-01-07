@@ -6,12 +6,13 @@ const CollectionPreview = ({ title, items }) => {
   const itemarray = items.length ? (
     items
       .filter((item, idx) => idx < 4)
-      .map(({ id, ...itemProps }) => (
-        <CollectionItems key={id} {...itemProps} />
+      .map(item  => (
+        <CollectionItems key={item.id} item={item} />
       ))
   ) : (
     <div>No item</div>
   );
+  
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
