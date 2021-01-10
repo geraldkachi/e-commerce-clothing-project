@@ -4,9 +4,12 @@
     height: 80px;
     margin-bottom: 15px;
 }
-.cart-item > img {
+.cart-item.img {
     width: 30%;
 }
+/* .cart-item > img {
+    width: 30%;
+} */
 
 .cart-item.item-details {
     width: 70%;

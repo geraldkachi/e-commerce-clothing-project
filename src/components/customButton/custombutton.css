@@ -13,27 +13,31 @@
     font-weight: bolder;
     border: none;
     cursor: pointer;
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
 }
 
-/* .custom-button:hover {
+.custom-button:hover {
   background-color: white;
   color: black;
-  border: 1px solid black;
-} */
+  border: 1px solid black; 
+}
 
 .custom-button.google-sign-in {
   background-color: #4285f4;
+  color: white ;
+}
+.custom-button.google-sign-in:hover{
+  background-color: #4285f4;
   border: none;
 }
-
-/* .inverted {
+.custom-button.inverted {
   background-color: white;
   color: black;
   border: 1px solid black;
-} */
-/* .inverted:hover {
+}
+.inverted:hover {
   background-color: black;
   color: white;
-} */
+  border: none;
+}
