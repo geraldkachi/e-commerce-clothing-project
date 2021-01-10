@@ -16,21 +16,22 @@ img {
   height: 100%;
 }
 
-  .checkout-item.name {
+  .checkout-item > .name {
       width: 23%;
     }
-    .checkout-item.quantity {
+    .checkout-item > .quantity {
+        cursor: pointer;
       width: 23%;
     }
-    .checkout-item.price {
+    .checkout-item > .price {
       width: 23%;
     }
   
-    .checkout-item.quantity {
+    .checkout-item > .quantity {
       padding-left: 20px;
     }
   
-    .checkout-item.remove-button {
+    .checkout-item > .remove-button {
       padding-left: 12px;
       cursor: pointer;
     }

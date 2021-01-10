@@ -6,13 +6,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "./components/redux/store/store"
+import {PersistGate} from "redux-persist/lib/integration/react"
+import {store, persistor} from "./components/redux/store/store"
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
+      <PersistGate persistor={persistor}>
         <App />
+      </PersistGate>
       </BrowserRouter>
     </React.StrictMode>
   </Provider>,
@@ -23,3 +26,27 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
+// import React from "react";
+// import ReactDOM from "react-dom";
+// import "./index.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import App from "./App";
+// import reportWebVitals from "./reportWebVitals";
+// import { BrowserRouter } from "react-router-dom";
+// import { Provider } from "react-redux";
+// import store from "./components/redux/store/store"
+
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <React.StrictMode>
+//       <BrowserRouter>
+//         <App />
+//       </BrowserRouter>
+//     </React.StrictMode>
+//   </Provider>,
+//   document.getElementById("root")
+// );
