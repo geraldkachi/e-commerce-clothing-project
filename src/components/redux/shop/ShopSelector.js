@@ -8,6 +8,13 @@ import { createSelector } from "reselect";
 //   mens: 5,
 // };
 
+const selectShop = (state) => state.shop;
+
+export const selectCollections = createSelector(
+  [selectShop],
+  (shop) => shop.collections
+);
+
 export const selectCollection = (collectionUrlParam) =>
   createSelector(
     [selectCollections], 
@@ -18,12 +25,10 @@ export const selectCollection = (collectionUrlParam) =>
         // )
   );
 
-const selectShop = (state) => state.shop;
-
-export const selectCollections = createSelector(
-  [selectShop],
-  (shop) => shop.collections
-);
+  export const selectorCollectionsForPreview = createSelector(
+    [selectCollections],
+    collections => Object.keys(collections).map(key => collections[key])
+  )
 
 
 
@@ -32,13 +37,14 @@ export const selectCollections = createSelector(
 
 
 
+ 
 
 
-
-
-//  when you a find() fro the collections item... it iterates lowly from left to right and it not good for performance bases on this applications  and not in all cases
+// 0.1  when you a find() fro the collections item... it iterates lowly from left to right and it not good for performance bases on this applications  and not in all cases
 
 //  very important so take notes
+// 0.2  to create a new selector that will convert an object {} to an array [].. by using Object.keys
+
 
 
 
