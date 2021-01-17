@@ -51,3 +51,8 @@ const mapStateTopProps = createStructuredSelector({
 });
 
 export default connect(mapStateTopProps)(CheckOutPage);
+
+
+
+// heroku with react deployment bes practices
+// heroku create ikoojo-clothing --buildpack https://github.com/mars/create-react-app-buildpack.git
