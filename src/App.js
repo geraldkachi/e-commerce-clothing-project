@@ -4,18 +4,21 @@ import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
-import {auth, createUserProfileDocument} from './firebase/FirebaseUtils'
+import {
+  auth, 
+  createUserProfileDocument, 
+  // addCollectionAndDocuments
+} from './firebase/FirebaseUtils'
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import {connect} from "react-redux"
-import { setCurrentUser } from "./components/redux/user/UserAction";
-
 import {createStructuredSelector} from "reselect"
-
+import { setCurrentUser } from "./components/redux/user/UserAction";
 import{ selectCurrentUser } from './components/redux/user/UserSelector'
 
 import CheckOutPage from "./components/pagesapp/checkout/CheckOutPage";
+// import { selectorCollectionsForPreview } from "./components/redux/shop/ShopSelector";
 
 
 
@@ -31,7 +34,9 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){
-    const { setCurrentUser } = this.props
+    const { setCurrentUser, 
+      // collectionsArray
+     } = this.props
     
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -54,7 +59,8 @@ class App extends React.Component {
       }
       
       
-      setCurrentUser({currentUser: userAuth})
+      setCurrentUser(userAuth)
+      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
     })
   }
 
@@ -85,7 +91,8 @@ class App extends React.Component {
 // })
 
 const mapStateToProps = createStructuredSelector({
-    currentUser: selectCurrentUser
+    currentUser: selectCurrentUser,
+    // collectionsArray: selectorCollectionsForPreview
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -93,6 +100,7 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(
+  // null,
   mapStateToProps,
   mapDispatchToProps 
   )(App)
@@ -141,3 +149,10 @@ export default connect(
 //   firebase.initializeApp(firebaseConfig);
 //   firebase.analytics();
 // </script>
+
+
+
+
+// https://bit.ly/368WXyl
+
+// https://passmyinterview.com/21-great-answers-to-tough-interview-questions/
