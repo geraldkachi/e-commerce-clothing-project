@@ -4,20 +4,20 @@ import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
-import {
-  auth, 
-  createUserProfileDocument, 
+// import {
+  // auth, createUserProfileDocument, 
   // addCollectionAndDocuments
-} from './firebase/FirebaseUtils'
+// } from './firebase/FirebaseUtils'
 
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import {connect} from "react-redux"
 import {createStructuredSelector} from "reselect"
-import { setCurrentUser } from "./components/redux/user/UserAction";
+// import { setCurrentUser } from "./components/redux/user/UserAction";
 import{ selectCurrentUser } from './components/redux/user/UserSelector'
 
 import CheckOutPage from "./components/pagesapp/checkout/CheckOutPage";
+import { checkUserSession } from "./components/redux/user/UserAction";
 // import { selectorCollectionsForPreview } from "./components/redux/shop/ShopSelector";
 
 
@@ -34,35 +34,38 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){
-    const { setCurrentUser, 
-      // collectionsArray
-     } = this.props
-    
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth)
-
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
-          })
-          // this.setState({
-          //   currentUser: {
-          //     id: snapShot.id,
-          //     ...snapShot.data()
-          //   }  
-          // })
-          // console.log(this.state);
-        })
-
-      }
-      
-      
-      setCurrentUser(userAuth)
-      // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
-    })
+    const {checkUserSession} =this.props
+    checkUserSession()
   }
+  // componentDidMount(){
+  //   const { setCurrentUser, 
+  //     // collectionsArray
+  //    } = this.props
+    
+  //   this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+  //     if (userAuth) {
+  //       const userRef = await createUserProfileDocument(userAuth)
+
+  //       userRef.onSnapshot(snapShot => {
+  //         // setCurrentUser({
+  //         //     id: snapShot.id,
+  //         //     ...snapShot.data()
+  //         // })
+  //         this.setState({
+  //           currentUser: {
+  //             id: snapShot.id,
+  //             ...snapShot.data()
+  //           }  
+  //         })
+  //         // console.log(this.state);
+
+  //       })
+
+  //     }
+  //     setCurrentUser(userAuth)
+  //     // addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})))
+  //   })
+  // }
 
   componentWillUnmount(){
     this.unsubscribeFromAuth()
@@ -70,6 +73,7 @@ class App extends React.Component {
   
   render(){
 
+    // no more using setcurrentUser
     const { currentUser } = this.props
 
     return (
@@ -96,8 +100,13 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-   setCurrentUser: user => dispatch(setCurrentUser(user))
+  checkUserSession: () => dispatch(checkUserSession())
+  //  setCurrentUser: user => dispatch(setCurrentUser(user))
 })
+
+// const mapDispatchToProps = dispatch => ({
+//    setCurrentUser: user => dispatch(setCurrentUser(user))
+// })
 
 export default connect(
   // null,
@@ -154,5 +163,7 @@ export default connect(
 
 
 // https://bit.ly/368WXyl
+
+// https://bennettfeely.com
 
 // https://passmyinterview.com/21-great-answers-to-tough-interview-questions/

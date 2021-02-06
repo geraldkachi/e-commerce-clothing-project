@@ -6,11 +6,9 @@ const CollectionPreview = ({ title, items }) => {
   const itemarray = items.length ? (
     items
       .filter((item, idx) => idx < 4)
-      .map(item  => (
-        <CollectionItems key={item.id} item={item} />
-      ))
+      .map(item  => <CollectionItems key={item.id} item={item} />)
   ) : (
-    <div>No item</div>
+    <div>Loading...</div>
   );
   
   return (
@@ -22,3 +20,6 @@ const CollectionPreview = ({ title, items }) => {
 };
 
 export default CollectionPreview;
+
+// create
+// console.developers.google.com

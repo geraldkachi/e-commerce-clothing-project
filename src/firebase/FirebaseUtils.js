@@ -75,7 +75,17 @@ export const covertCollectionsSnapshotToMap = (collections) => {
 
   return transformedCollection.reduce((acc, collection) => {
     acc[collection.title.toLowerCase()] = collection
+    return acc
   }, {})
+}
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe()
+      resolve(userAuth)
+    }, reject)
+  })
 }
 
 firebase.initializeApp(firebaseConfig);
@@ -86,9 +96,14 @@ firebase.initializeApp(firebaseConfig);
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
+
+
+// const provider = new firebase.auth.GoogleAuthProvider();
+// provider.setCustomParameters({ prompt: "select_account" });
+// export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
 
@@ -97,4 +112,4 @@ export default firebase;
 // Please apply by filling out the form below:  React Native
 // https://forms.gle/BZYXeVt1tvbYJ6X57  
 
-// https://novoresume.com/
+// https://oresume.com/
