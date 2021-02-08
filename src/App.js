@@ -34,7 +34,7 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){
-    const {checkUserSession} =this.props
+    const {checkUserSession} = this.props
     checkUserSession()
   }
   // componentDidMount(){

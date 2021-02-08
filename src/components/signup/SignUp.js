@@ -2,8 +2,11 @@ import React from 'react'
 import "./signup.css"
 import FormInput from "../formInput/FormInput"
 import CusttomButton from "../customButton/CusttomButton"
+import { connect } from 'react-redux'
+import { signUpSatrt } from '../redux/user/UserAction'
 
-import {auth,createUserProfileDocument} from "../../firebase/FirebaseUtils"
+
+// import {auth,createUserProfileDocument} from "../../firebase/FirebaseUtils"
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -16,27 +19,31 @@ class SignUp extends React.Component {
              confirmPassword:''
         }
     }
+    
     hanleSubmit = async (e) => {
         e.preventDefault()
+        const { signUpSatrt } = this.props
         const {displayName, email, password, confirmPassword } = this.state
         if (password !== confirmPassword) {
-            alert("passwords don't match")
+            alert("passwords don't match")   
             return
         }
-        try {
-            const { user } = await auth.createUserWithEmailAndPassword(email, password)
-            await createUserProfileDocument(user, {displayName})
 
-            this.setState({
-             displayName:'',
-             email:'',
-             password:'',
-             confirmPassword:''
-            })
+        signUpSatrt({ displayName, email, password })
+        // try {
+           
+        //     await createUserProfileDocument(user, {displayName})
 
-        } catch (error) {
-            console.error(error)
-        }
+        //     this.setState({
+        //      displayName:'',
+        //      email:'',
+        //      password:'',
+        //      confirmPassword:''
+        //     })
+
+        // } catch (error) {
+        //     console.error(error)
+        // }
     }
     handleChange = (e) => {
         const { name, value} =  e.target
@@ -96,4 +103,8 @@ class SignUp extends React.Component {
     }
 }
 
-export default SignUp
+const mapDispatchToPerops = dispatch => ({
+    signUpSatrt: userCreditials => dispatch(signUpSatrt(userCreditials))
+})
+
+export default connect( null, mapDispatchToPerops )(SignUp)
