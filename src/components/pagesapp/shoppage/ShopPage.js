@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 
@@ -10,32 +10,30 @@ import { Route } from "react-router-dom";
 // import CollectionPage from "../category/CollectionPage";
 
 import { fetchCollectionsStart } from "../../redux/shop/ShopAction";
-import CollectionOverviewContainer  from '../../collectionsOverview/collectionOverviewContainer'
+import CollectionOverviewContainer from "../../collectionsOverview/collectionOverviewContainer";
 import CollectionPageContainer from "../category/CollectionContainer";
-
-
 
 // const CollectionOverviewWithSpinner = WithSpinner(CollectionsOverview)
 // const CollectionPageWithSpinner = WithSpinner(CollectionPage)
 
-class ShopPage extends React.Component {
-
+const ShopPage = ({ fetchCollectionsStart, match }) => {
   // constructor(props) {
   //   super(props)
-  
+
   //   this.state = {
   //      loading: true
   //   }
   // }
-  
+
   // unsubscribeFromSnapshot = null
- 
 
-
-  componentDidMount() {
-    const { fetchCollectionsStart } = this.props
-    fetchCollectionsStart()
-  }
+  useEffect(() => {
+    fetchCollectionsStart();
+  }, [fetchCollectionsStart]);
+  // componentDidMount() {
+  //   const { fetchCollectionsStart } = this.props
+  //   fetchCollectionsStart()
+  // }
 
   // => this logic was move to the shopAction
   // componentDidMount() {
@@ -51,8 +49,7 @@ class ShopPage extends React.Component {
   //       })
   // }
 
- render () {
-   const { match } = this.props
+  //  const { match } = this.props
 
   //  const {loading} = this.state
 
@@ -62,10 +59,9 @@ class ShopPage extends React.Component {
       {/* <Route exact path={`${match.path}`} render={(props) => <CollectionOverviewWithSpinner isLoading={isCollectionFetching} {...props} />} /> */}
       {/* <Route exact path={`${match.path}/:collectionId`} render={(props) => <CollectionPageWithSpinner isLoading={!isCollectionLoaded} {...props} />} /> */}
       <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
-      <Route exact path={`${match.path}/:collectionId`} component={(props) => <CollectionPageContainer />} />
+      <Route exact path={`${match.path}/:collectionId`} component={CollectionPageContainer} />
     </div>
   );
- }
 };
 
 // const mapStateToProps = createStructuredSelector({
@@ -73,19 +69,18 @@ class ShopPage extends React.Component {
 //   isCollectionLoaded: selectCollectionsLoading
 // })
 
-const mapDispatchToProps = dispatch => ({
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart())
-})
-
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+});
 
 // const mapStateToProps = (dispatch) => ({
 //   updateCollections: collectionsMap => dispatch(updateCollections(collectionsMap))
 // })
 
 export default connect(
-  null, 
+  null,
   // mapStateToProps,
-  mapDispatchToProps)(ShopPage);
+  mapDispatchToProps
+)(ShopPage);
 
-
-  // growing up together is what makes a strong family 
+// growing up together is what makes a strong family

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
@@ -22,7 +22,7 @@ import { checkUserSession } from "./components/redux/user/UserAction";
 
 
 
-class App extends React.Component {
+const App = ({ checkUserSession, currentUser }) => { 
 
   // constructor(props) {
   //   super(props)
@@ -31,12 +31,16 @@ class App extends React.Component {
   //      currentUser: null
   //   }
   // }
-  unsubscribeFromAuth = null
+  // const unsubscribeFromAuth = null
 
-  componentDidMount(){
-    const {checkUserSession} = this.props
+  useEffect(() =>{
+    // const {checkUserSession} = this.props
     checkUserSession()
-  }
+  }, [checkUserSession])
+  // componentDidMount(){
+  //   const {checkUserSession} = this.props
+  //   checkUserSession()
+  // }
   // componentDidMount(){
   //   const { setCurrentUser, 
   //     // collectionsArray
@@ -67,14 +71,14 @@ class App extends React.Component {
   //   })
   // }
 
-  componentWillUnmount(){
-    this.unsubscribeFromAuth()
-  }
+  // componentWillUnmount(){
+  //   this.unsubscribeFromAuth()
+  // }
   
-  render(){
+  
 
     // no more using setcurrentUser
-    const { currentUser } = this.props
+    // const { currentUser } = this.props
 
     return (
       <>
@@ -87,7 +91,6 @@ class App extends React.Component {
         </Switch>
       </>
     );
-  }
 };
 
 // const mapStateToProps = ({user}) => ({
@@ -113,10 +116,45 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps 
   )(App)
+  
 // export default connect(null, mapStateToProps,mapDispatchToProps )(App);
 
+/////////////////////////////////////////
+// const UseEffectExample = () => {
+// // useState
+// const [user, setUser] = useState(null)
+// const [searchQuery, setSearchQuery] = useState('kachi')
 
+// // useEffect 
 
+// useEffect(() => {
+//   const fetchFunc = async () => {
+//     const res = await fetch(`https://jsonplaceholder.typicode/com/users?username=$()`)
+//     const resJson = await res.json();
+//     selectCurrentUser(resJson[0])
+//   }
+
+//   // to call it 
+//   fetchFunc()
+// }, [searchQuery])
+
+// return (
+//   <>
+//     <input type="search" value={searchQuery}
+//     onChange={ (e) => setSearchQuery(e.target.value)} />
+//     {user ? (
+//         <div>
+//           <h3>{user.name}</h3>
+//           <h3>{user.username}</h3>
+//           <h3>{user.email}</h3>
+//         </div>
+//     ) : (
+//       <p>No user found</p>
+//     )}
+//   </>
+// )
+// }
+//////////////////////////////////////////////////////
 
 
 

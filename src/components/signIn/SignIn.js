@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 import { googleSignInStart, emailSignInStart } from "../redux/user/UserAction";
 // import CountApp from './CountApp'
 
-const SignIn = (props) => {
-  const { googleSignInStart } = props;
+const SignIn = ({googleSignInStart,emailSignInStart}) => {
+  // const { googleSignInStart } = props;
 
   const [formInput, setFormInput] = React.useState({
     email: "",
@@ -20,10 +20,10 @@ const SignIn = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { emailSignInStart } = props;
+      
     emailSignInStart(email, password);
 
-    setFormInput({ email: "", password: "" });
+    // setFormInput({ email: "", password: "" });
 
     // no more setState(or update state) Redux will do that for us
     // try {
@@ -36,7 +36,7 @@ const SignIn = (props) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormInput({ [name]: value });
+    setFormInput({ ...formInput,[name]: value });
     // console.log(setFormInput);
   };
 
