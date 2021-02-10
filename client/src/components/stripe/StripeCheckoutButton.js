@@ -15,7 +15,7 @@ const StripeCheckoutButton = ({ price }) => {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Ikoojo-Clothing "
+      name="Ikoojo-Clothing"
       shippingAddress
       billingAddress
       image="https://svgshare.com/i/CUz.svg"

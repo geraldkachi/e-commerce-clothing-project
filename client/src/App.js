@@ -24,13 +24,7 @@ import { checkUserSession } from "./components/redux/user/UserAction";
 
 const App = ({ checkUserSession, currentUser }) => { 
 
-  // constructor(props) {
-  //   super(props)
-  
-  //   this.state = {
-  //      currentUser: null
-  //   }
-  // }
+
   // const unsubscribeFromAuth = null
 
   useEffect(() =>{
@@ -75,10 +69,6 @@ const App = ({ checkUserSession, currentUser }) => {
   //   this.unsubscribeFromAuth()
   // }
   
-  
-
-    // no more using setcurrentUser
-    // const { currentUser } = this.props
 
     return (
       <>
@@ -116,8 +106,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps 
   )(App)
-  
-// export default connect(null, mapStateToProps,mapDispatchToProps )(App);
+
 
 /////////////////////////////////////////
 // const UseEffectExample = () => {
@@ -156,9 +145,7 @@ export default connect(
 // }
 //////////////////////////////////////////////////////
 
-
-
-
+// https://tfbenneteely.com/
 
 
 
@@ -166,8 +153,10 @@ export default connect(
 
 
 
+// server side 
+// cors: cross oridine request
 
-
+// express is just a library that allows us to build an API server easily
 
 
 
@@ -205,3 +194,6 @@ export default connect(
 // https://bennettfeely.com
 
 // https://passmyinterview.com/21-great-answers-to-tough-interview-questions/
+
+
+// mkdir client
