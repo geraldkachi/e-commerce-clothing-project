@@ -17,4 +17,4 @@ const CollectionPageContainer = compose(
 
 export default CollectionPageContainer
 
-// do not cheaT myself the oppunutiy to have a happy and  helty relationship
+// do not cheaT myself the oppunutiy to have a happy and  healty relationship

@@ -15,14 +15,14 @@ const Directory = ({ sections }) => {
   ) : (
     <div>Loading Items...</div>
   );
-  return <div className="directory-menu">{DirectoryArray}</div>;
+  return <div className="directory-menu">{DirectoryArray}</div>
 };
 
 const mapStateToProps = createStructuredSelector({
   sections: selectDirectorySections
 })
 
-export default connect(mapStateToProps)(Directory);
+export default connect(mapStateToProps)(Directory)
 
 // render() {
 

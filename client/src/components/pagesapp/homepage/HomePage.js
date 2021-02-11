@@ -8,8 +8,8 @@ const HomePage = () => {
     <HomePageContainer>
       <Directory />
     </HomePageContainer>
-  );
-};
+  )
+}
 
 // const HomePageContainer = styled.div`
 //     display: flex;

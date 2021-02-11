@@ -92,3 +92,40 @@ export default connect(
 //   hidden
 // });
 
+
+
+
+
+
+
+
+
+// return (
+//   <HeaderContainer>
+//     <LogoContainer to="/">
+//       <Logo className="logo" />
+//     </LogoContainer>
+  
+//       <OptionsContainer>
+//         <OptionLink className="option" to="/shop">
+//           SHOP
+//         </OptionLink>
+//         <OptionLink to="/contact">
+//           CONTACT
+//         </OptionLink>
+//         {currentUser ? (
+//           // <OptionLink as="div"  onClick={() => auth.signOut()}>   
+//           <OptionLink as="div"  onClick={signOutStart}>   
+//             SIGNOUT
+//           </OptionLink>
+//         ) : (
+//           <OptionLink to="/signin">
+//             SIGNIN
+//           </OptionLink>
+//         )}
+//       <CartIcon />
+//       </OptionsContainer>
+    
+//     { hidden ? (null) : (<CartDropDown />) }
+//   </HeaderContainer>
+// );        

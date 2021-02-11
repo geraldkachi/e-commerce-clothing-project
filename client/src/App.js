@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./App.css";
+// import "./App.css";
 import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
@@ -18,7 +18,10 @@ import{ selectCurrentUser } from './components/redux/user/UserSelector'
 
 import CheckOutPage from "./components/pagesapp/checkout/CheckOutPage";
 import { checkUserSession } from "./components/redux/user/UserAction";
+import { GlobalStyle } from "./globalstyle/GlobalStyle";
 // import { selectorCollectionsForPreview } from "./components/redux/shop/ShopSelector";
+
+
 
 
 
@@ -72,6 +75,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
     return (
       <>
+      <GlobalStyle />
         <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -197,3 +201,4 @@ export default connect(
 
 
 // mkdir client
+// https://github.com/ZhangMYihua/react-context-complete

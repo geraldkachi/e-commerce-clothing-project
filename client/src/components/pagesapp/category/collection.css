@@ -3,7 +3,7 @@
     flex-direction: column;
 }
 
-.collection-page  .title {
+.collection-page > .title {
     font-size: 33px;
     margin: 0 auto 30px;
 }

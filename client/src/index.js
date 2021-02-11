@@ -8,6 +8,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import {PersistGate} from "redux-persist/lib/integration/react"
 import {store, persistor} from "./components/redux/store/store"
+// import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -26,6 +27,8 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// serviceWorker.register()
 
 
 

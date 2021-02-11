@@ -1,6 +1,7 @@
 import React from "react";
 import "./collectionpreview.css";
 import CollectionItems from "../collectionItem/CollectionItems";
+import { CollectionPreviewContainer, TitleContainer, PreviewContainer } from "./CollectionPreviewStyled";
 
 const CollectionPreview = ({ title, items }) => {
   const itemarray = items.length ? (
@@ -12,10 +13,10 @@ const CollectionPreview = ({ title, items }) => {
   );
   
   return (
-    <div className="collection-preview">
-      <h1 className="title">{title.toUpperCase()}</h1>
-      <div className="preview">{itemarray}</div>
-    </div>
+    <CollectionPreviewContainer className="collection-preview">
+      <TitleContainer className="title">{title.toUpperCase()}</TitleContainer>
+      <PreviewContainer className="preview">{itemarray}</PreviewContainer>
+    </CollectionPreviewContainer>
   );
 };
 

@@ -16,3 +16,16 @@ const MenuItem = ({title, size, imageUrl, history, match, linkUrl}) => {
 }
 
 export default withRouter(MenuItem)
+
+
+
+// return (
+//     <MenuItemContainer className={`${size} menu-item`} onClick={()=> history.push(`${match.url}${linkUrl}`)}>
+//         <BackgroundImageContainer className="background-image" style={{backgroundImage:`url(${imageUrl})`}}>
+//             <ContentContainer className="content">
+//                 <h1 className="title">{title.toUpperCase}</h1>
+//                 <span className="subtitle">SHOP NOW</span>
+//             </ContentContainer>
+//         </BackgroundImageContainer>
+//     </MenuItemContainer>
+// )
