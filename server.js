@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const path = require("path")
 const enforce = require("express-sslify")
 
+
 if (process.env.NODE_ENV !== "production") require("dotenv").config()
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)

@@ -43,7 +43,7 @@ export const BackgroundImage = styled.div`
 
 export const NameContainer = styled.div`
   width: 90%;
-  margin-bottom: 15px;
+  margin-bottom: 15px;  
 `;
 
 export const PriceContainer = styled.div`
