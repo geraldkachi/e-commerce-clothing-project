@@ -29,11 +29,11 @@ const SiginSignup = () => {
 
   return (
     <>
-      <SignINUPStyled className="row mr-5 mx-auto">
+      <SignINUPStyled className="row">
         <div className="col-md-6 mt-3">
           <SignIn />
         </div>
-        <div className="col-md-6 mt-3">
+        <div className="col-md-6">
           <SignUp />
         </div>
       </SignINUPStyled>
@@ -43,13 +43,14 @@ const SiginSignup = () => {
 };
 
 const SignINUPStyled = styled.div`
-  // width: 850px;
+  width: 850px;
   justify-content: space-between;
-  // margin: 30px auto;
+  margin: 30px auto;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 800px) {
     overflow: hidden;
     width: unset;
+    margin: 30px auto
   }
 `;
 

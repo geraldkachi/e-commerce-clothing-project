@@ -12,3 +12,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 800px) {
+    .button {
+        margin-right: 15px;
+    }
+}
