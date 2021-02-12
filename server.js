@@ -57,3 +57,5 @@ app.post('/payment', (req, res) => {
 // cors: cross origin request
 
 // npm install express-sslify
+
+// npm run dev 

@@ -6,3 +6,9 @@
 .title{
     margin: 10px 0;
 }
+
+@media screen and (max-width: 500px) {
+    .sign-up {
+    margin-top: 300px;
+    }
+  }
