@@ -18,4 +18,4 @@ export const ItemDetailsContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 1px 20px;
-`;
+`; 

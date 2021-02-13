@@ -7,11 +7,11 @@ const initState = {
     errorMessage: undefined
 }
 // const initState = {
-//     collections: null
-//     isFetching:false
+//     collections: null,
+//     isFetching: false
 // }
 
-const ShopReducer = (state= initState, action) => {
+const ShopReducer = (state = initState, action) => {
     switch (action.type) {
         case ShopActionTypes.FETCH_COLLECTION_START: 
         return {
