@@ -61,8 +61,8 @@ const ShopPage = ({ fetchCollectionsStart, match }) => {
       <Route exact path={`${match.path}`} component={CollectionOverviewContainer} />
       <Route exact path={`${match.path}/:collectionId`} component={CollectionPageContainer} />
     </div>
-  );
-};
+  )
+}
 
 // const mapStateToProps = createStructuredSelector({
 //   // isCollectionFetching: selectIsCollectionFetching,
