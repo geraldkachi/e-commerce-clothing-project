@@ -1,7 +1,7 @@
 import { covertCollectionsSnapshotToMap, firestore } from "../../../firebase/FirebaseUtils";
 import ShopActionTypes from "./ShopType";
 
-export const fetchCollectionsStart =  () => ({
+export const fetchCollectionsStart = () => ({
     type: ShopActionTypes.FETCH_COLLECTION_START,
 })
 

@@ -1,5 +1,5 @@
 import React from "react";
-import "./checkout.css";
+// import "./checkout.css";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -38,7 +38,9 @@ const CheckOutPage = ({ cartItems, total }) => {
       <br/>
       4242 4242 4242 4224 - Exp: 01/20 - CVV: 123
     </WarningContainer>
-      <StripeCheckoutButton price={total} />
+     <div className="text-center">
+     <StripeCheckoutButton price={total} />
+     </div>
     </CheckoutPageContainer>
   );
 };
