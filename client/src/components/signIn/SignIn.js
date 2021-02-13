@@ -1,5 +1,5 @@
 import React from "react";
-import CusttomButton from "../customButton/CusttomButton";
+import CustomButton from "../customButton/CustomButton";
 import FormInput from "../formInput/FormInput";
 import "./signin.css";
 
@@ -67,14 +67,14 @@ const SignIn = ({googleSignInStart,emailSignInStart}) => {
         />
 
         <div className="button">
-          <CusttomButton type="submit">SIGN IN</CusttomButton>{" "}
-          <CusttomButton
+          <CustomButton type="submit">SIGN IN</CustomButton>{" "}
+          <CustomButton
             type="button"
             onClick={googleSignInStart}
             isGoogleSignIn
           >
             SIGN IN with Google
-          </CusttomButton>
+          </CustomButton>
         </div>
       </form>
       {/* <CountApp /> */}

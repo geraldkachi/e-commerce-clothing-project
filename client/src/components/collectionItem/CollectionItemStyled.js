@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CusttomButton from "../customButton/CusttomButton";
+import CustomButton from "../customButton/CustomButton";
 
 export const CollectionItemContainer = styled.div`
   width: 22vw;
@@ -50,7 +50,7 @@ export const PriceContainer = styled.div`
   width: 10%;
 `;
 
-export const AddButton = styled(CusttomButton)`
+export const AddButton = styled(CustomButton)`
   width: 80%;
   opacity: 0.7;
   position: absolute;

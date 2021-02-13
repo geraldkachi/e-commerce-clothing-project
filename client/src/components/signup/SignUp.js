@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./signup.css";
 import FormInput from "../formInput/FormInput";
-import CusttomButton from "../customButton/CusttomButton";
+import CustomButton from "../customButton/CustomButton";
 import { connect } from "react-redux";
 import { signUpSatrt } from "../redux/user/UserAction";
 
@@ -87,7 +87,7 @@ const SignUp = ({ signUpSatrt }) => {
           required
         />
 
-        <CusttomButton type="submit">SIGN Up</CusttomButton>
+        <CustomButton type="submit">SIGN Up</CustomButton>
       </form>
     </div>
   );

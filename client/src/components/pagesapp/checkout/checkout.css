@@ -7,6 +7,12 @@
   margin: 50px auto 0;
 }
 
+@media screen and (max-width: 800px) {
+  .checkout-page {
+    width: 90%;
+  }
+}
+
 .checkout-header {
   width: 100%;
   padding: 10px 0;

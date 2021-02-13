@@ -7,6 +7,27 @@
     font-size: 20px;
     align-items: center;
   }
+
+  @media screen and (max-width: 800px) {
+    .checkout-item {
+      font-size: 18px;
+    }
+    .name {
+      width: 22%;
+    }
+  }
+
+  .arrow {
+    display: flex;
+  }
+  .arrow > span {
+    margin: 0 10px;
+  }
+  .arrow > div {
+    cursor: pointer;
+  }
+
+
   .image-container {
     width: 23%;
     padding-right: 15px;

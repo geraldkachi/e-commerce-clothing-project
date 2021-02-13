@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import CartItem from "../cartItem/CartItem";
-import CusttomButton from "../customButton/CusttomButton";
+import CustomButton from "../customButton/CustomButton";
 import {selectCartItems} from "../redux/cart/CartSelector"
 
 import { withRouter } from "react-router-dom"
@@ -30,10 +30,10 @@ const CartDropDown = ({ cartItems, history, dispatch}) => {
       <div className="cart-item">
         {cartArrayItems}
       </div>
-      <CusttomButton onClick={() => 
+      <CustomButton onClick={() => 
         {history.push("/checkout");
         dispatch(toggleCartHidden())}
-        }>GO TO CHECKOUT</CusttomButton>
+        }>GO TO CHECKOUT</CustomButton>
     </div>
   );
 };
