@@ -46,4 +46,6 @@ const StripeCheckoutButton = ({ price }) => {
 // letsencrypt.org    for https in PWA
 // cloudflare.com is a CDN
 
+
+
 export default StripeCheckoutButton

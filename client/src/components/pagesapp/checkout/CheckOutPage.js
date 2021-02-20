@@ -8,6 +8,7 @@ import { selectCartItems, selectCartTotal } from "../../redux/cart/CartSelector"
 import CkeckOutItem from "../../checkoutItem/CkeckOutItem";
 import StripeCheckoutButton from "../../stripe/StripeCheckoutButton";
 import { CheckoutHeaderContainer, CheckoutPageContainer, HeaderBlockContainer, TotalContainer, WarningContainer } from "./CheckOutPageStyled";
+import PayStack from "../../paystack/PayStack";
 
 const CheckOutPage = ({ cartItems, total }) => {
   return (
@@ -40,6 +41,7 @@ const CheckOutPage = ({ cartItems, total }) => {
     </WarningContainer>
      <div className="text-center">
      <StripeCheckoutButton price={total} />
+     <PayStack />
      </div>
     </CheckoutPageContainer>
   );
@@ -56,3 +58,4 @@ export default connect(mapStateTopProps)(CheckOutPage);
 
 // heroku with react deployment bes practices
 // heroku create ikoojo-clothing --buildpack https://github.com/mars/create-react-app-buildpack.git
+// npm install react-paystack --save

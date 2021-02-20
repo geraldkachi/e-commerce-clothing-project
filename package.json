@@ -21,6 +21,7 @@
     "dotenv": "7.0.0",
     "express": "^4.17.1",
     "express-sslify": "^1.2.0",
+    "react-paystack": "^3.0.3",
     "stripe": "6.28.0"
   },
   "devDependencies": {
