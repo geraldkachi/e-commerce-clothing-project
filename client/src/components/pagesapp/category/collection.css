@@ -1,6 +1,8 @@
 .collection-page {
     display: flex;
     flex-direction: column;
+    margin-bottom: 30px;
+    align-items: center;
 }
 
 .collection-page > .title {
@@ -17,10 +19,13 @@
     .items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 15px;
     }
-    .items .colllection-item {
+    /* .items >.colllection-item {
         margin-bottom: 80px;
+    } */
+    .collection-page{
+    align-items: center;
     }
 }
 
