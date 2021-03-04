@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import HomePage from "./components/pagesapp/homepage/HomePage";
 import ShopPage from "./components/pagesapp/shoppage/ShopPage"; 
 import Header from "./components/header/Header"
+import ContactPage from "./components/pagesapp/contact/ContactPage";
 import SiginSignup from "./components/pagesapp/signIn-and-signUp/SiginSignup";
 // import {
   // auth, createUserProfileDocument, 
@@ -79,8 +80,9 @@ const App = ({ checkUserSession, currentUser }) => {
         <Header/>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route  path="/shop" component={ShopPage} />
-          <Route  exact path="/checkout" component={CheckOutPage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/contact" component={ContactPage}/>
+          <Route exact path="/checkout" component={CheckOutPage} />
           <Route exact path="/signin" render={() => currentUser ? (<Redirect to="/" />) : (<SiginSignup />)} />
         </Switch>
       </>
