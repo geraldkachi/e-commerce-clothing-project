@@ -6,8 +6,9 @@ import { createStructuredSelector } from "reselect";
 
 import { selectCartItems, selectCartTotal } from "../../redux/cart/CartSelector";
 import CkeckOutItem from "../../checkoutItem/CkeckOutItem";
-import StripeCheckoutButton from "../../stripe/StripeCheckoutButton";
 import { CheckoutHeaderContainer, CheckoutPageContainer, HeaderBlockContainer, TotalContainer, WarningContainer } from "./CheckOutPageStyled";
+
+import StripeCheckoutButton from "../../stripe/StripeCheckoutButton";
 import PayStack from "../../paystack/PayStack";
 
 const CheckOutPage = ({ cartItems, total }) => {
@@ -41,7 +42,7 @@ const CheckOutPage = ({ cartItems, total }) => {
     </WarningContainer>
      <div className="text-center">
      <StripeCheckoutButton price={total} />
-     <PayStack />
+     <PayStack price={total} />
      </div>
     </CheckoutPageContainer>
   );

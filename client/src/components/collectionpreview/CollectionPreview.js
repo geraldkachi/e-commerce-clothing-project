@@ -2,7 +2,7 @@ import React from "react";
 import "./collectionpreview.css";
 import CollectionItems from "../collectionItem/CollectionItems";
 import { CollectionPreviewContainer, TitleContainer, PreviewContainer } from "./CollectionPreviewStyled";
-import WithSpinner from "../pagesapp/withspinner/WithSpinner";
+// import WithSpinner from "../pagesapp/withspinner/WithSpinner";
 
 const CollectionPreview = ({ title, items }) => {
   const itemarray = items.length ? (
@@ -10,7 +10,8 @@ const CollectionPreview = ({ title, items }) => {
       .filter((item, idx) => idx < 4)
       .map(item  => <CollectionItems key={item.id} item={item} />)
   ) : (
-    <WithSpinner />
+    // <WithSpinner />
+    <div>looading</div>
   );
   
   return (

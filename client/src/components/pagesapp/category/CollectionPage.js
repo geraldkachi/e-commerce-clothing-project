@@ -7,6 +7,7 @@ import "./collection.css";
 const CollectionPage = ({ collection }) => {
   // console.log(collection);
   const { title, items } = collection;
+  console.log(collection);
   return (
     <div className="collection-page">
       <div className="title">{title}</div>

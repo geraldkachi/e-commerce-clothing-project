@@ -15,7 +15,10 @@ const mapStateToProps = createStructuredSelector({
     WithSpinner
 )(CollectionOverview)
 
+
+//  compose evaluete from right to left.. from withspinner to mapstatetoprops
 // without the compose fro redux... this containers the nested components
+
 // const CollectionOverviewContainer = connect(mapStateToProps)(WithSpinner(CollectionOverview))
 
 

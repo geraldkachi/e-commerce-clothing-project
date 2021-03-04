@@ -22,7 +22,7 @@ import { GlobalStyle } from "./globalstyle/GlobalStyle";
 // import { selectorCollectionsForPreview } from "./components/redux/shop/ShopSelector";
 
 
-
+// import { usePaystackPayment } from 'react-paystack';
 
 
 const App = ({ checkUserSession, currentUser }) => { 
