@@ -25,6 +25,8 @@ import { GlobalStyle } from "./globalstyle/GlobalStyle";
 
 // import { usePaystackPayment } from 'react-paystack';
 
+import Error from "./components/pagesapp/errror/Error"
+
 
 const App = ({ checkUserSession, currentUser }) => { 
 
@@ -84,6 +86,8 @@ const App = ({ checkUserSession, currentUser }) => {
           <Route path="/contact" component={ContactPage}/>
           <Route exact path="/checkout" component={CheckOutPage} />
           <Route exact path="/signin" render={() => currentUser ? (<Redirect to="/" />) : (<SiginSignup />)} />
+          <Route component={Error} />
+          <Redirect to="/Error" />
         </Switch>
       </>
     );

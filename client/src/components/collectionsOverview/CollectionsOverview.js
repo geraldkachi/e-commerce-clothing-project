@@ -5,6 +5,7 @@ import { selectorCollectionsForPreview } from '../redux/shop/ShopSelector'
 // import { selectCollections } from '../redux/shop/ShopSelector'
 import CollectionPreview from "../collectionpreview/CollectionPreview"
 import './collectionsoverview.css'
+import WithSpinner from "../../components/pagesapp/withspinner/WithSpinner"
 
 const CollectionsOverview = ({collections}) => {
     const collectionsArray = collections.length ? (
@@ -12,7 +13,7 @@ const CollectionsOverview = ({collections}) => {
           <CollectionPreview key={id} {...CollectionsProps} />
         ))
       ) : (
-        <div>Loading collections...</div>
+        <WithSpinner />
       )
     return (
         <div className="collections-overview">
@@ -27,3 +28,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 export default connect(mapStateToProps)(CollectionsOverview)
+
+
+// @AndreiNeagoie
+// @SlingingKeys
