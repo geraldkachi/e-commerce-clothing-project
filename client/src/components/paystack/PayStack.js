@@ -51,7 +51,7 @@ return (
   <div>
       <button onClick={() => {
           initializePayment(onSuccess, onClose, onToken)
-      }}>Paystack Hooks Implementation</button>
+      }}>Paystack Hooks clothing payment</button>
   </div>
 );
  

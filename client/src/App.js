@@ -88,6 +88,7 @@ const App = ({ checkUserSession, currentUser }) => {
           <Route exact path="/signin" render={() => currentUser ? (<Redirect to="/" />) : (<SiginSignup />)} />
           <Route component={Error} />
           <Redirect to="/Error" />
+          <Redirect to="/shop/Error" />
         </Switch>
       </>
     );
