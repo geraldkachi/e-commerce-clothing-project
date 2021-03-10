@@ -86,9 +86,11 @@ const App = ({ checkUserSession, currentUser }) => {
           <Route path="/contact" component={ContactPage}/>
           <Route exact path="/checkout" component={CheckOutPage} />
           <Route exact path="/signin" render={() => currentUser ? (<Redirect to="/" />) : (<SiginSignup />)} />
-          <Route component={Error} />
-          <Redirect to="/Error" />
-          <Redirect to="/shop/Error" />
+
+          {/* <Route component={Error} />
+          <Redirect to="/Error" /> */}
+              {/* or */}
+          <Route path="*" component={Error} />
         </Switch>
       </>
     );
